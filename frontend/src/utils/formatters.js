@@ -15,11 +15,11 @@ export function formatDateTime(dateStr) {
   return format(date, "MMM d, yyyy · h:mm a");
 }
 
-export function formatRelative(dateStr) {
+export const formatRelative = (dateStr) => {
   if (!dateStr) return "—";
   const date = typeof dateStr === "string" ? parseISO(dateStr) : dateStr;
   return formatDistanceToNow(date, { addSuffix: true });
-}
+};
 
 export function formatHours(hours) {
   if (hours == null) return "—";

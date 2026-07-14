@@ -1,0 +1,48 @@
+databases:
+  - name: volunteer-portal-db
+    plan: free
+    databaseName: volunteer_portal
+    user: volunteer_portal_user
+
+services:
+  # ── Backend API ──
+  - type: web
+    name: volunteer-portal-api
+    plan: free
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    branch: main
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: volunteer-portal-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://volunteer-portal-frontend-yzwk.onrender.com
+      - key: ENV
+        value: production
+      - key: RATE_LIMIT
+        value: "100/minute"
+
+  # ── Frontend Static Site ──
+  - type: web
+    name: volunteer-portal-frontend
+    plan: free
+    runtime: static
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/dist
+    branch: main
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        value: https://volunteer-portal-api.onrender.com

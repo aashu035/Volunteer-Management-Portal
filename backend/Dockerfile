@@ -47,8 +47,10 @@ COPY --from=builder /install /usr/local
 
 COPY . .
 
+RUN chmod +x start.sh
+
 USER appuser
 
 EXPOSE 8000
 
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-w", "4", "-b", "0.0.0.0:8000", "--access-logfile", "-", "--error-logfile", "-", "app.main:app"]
+CMD ["./start.sh"]

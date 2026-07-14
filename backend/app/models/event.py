@@ -32,7 +32,7 @@ class Event(Base):
     end_date: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     max_volunteers: Mapped[int] = mapped_column(Integer, default=50)
     status: Mapped[EventStatus] = mapped_column(
-        Enum(EventStatus), default=EventStatus.OPEN
+        Enum(EventStatus, values_callable=lambda obj: [e.value for e in obj]), default=EventStatus.OPEN
     )
     coordinator_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("users.id"), nullable=False

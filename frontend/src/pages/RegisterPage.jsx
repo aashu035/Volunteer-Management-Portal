@@ -52,11 +52,11 @@ export default function RegisterPage() {
 
         <div className="glass-card p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Input id="full_name" label="Full Name" placeholder="Your full name" value={form.full_name} onChange={update("full_name")} required />
-            <Input id="email" label="Email Address" type="email" placeholder="you@example.com" value={form.email} onChange={update("email")} required />
-            <Input id="phone" label="Phone (Optional)" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={update("phone")} />
-            <Input id="password" label="Password" type="password" placeholder="Min 8 characters" value={form.password} onChange={update("password")} required />
-            <Input id="confirmPassword" label="Confirm Password" type="password" placeholder="Repeat password" value={form.confirmPassword} onChange={update("confirmPassword")} required />
+            <Input id="full_name" label="Full Name" placeholder="Your full name" value={form.full_name} onChange={update("full_name")} autoComplete="name" required />
+            <Input id="email" label="Email Address" type="email" placeholder="you@example.com" value={form.email} onChange={update("email")} autoComplete="username" required />
+            <Input id="phone" label="Phone (Optional)" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={update("phone")} autoComplete="tel" />
+            <Input id="password" label="Password" type="password" placeholder="Min 8 characters" value={form.password} onChange={update("password")} autoComplete="new-password" required />
+            <Input id="confirmPassword" label="Confirm Password" type="password" placeholder="Repeat password" value={form.confirmPassword} onChange={update("confirmPassword")} autoComplete="new-password" required />
             <Button type="submit" loading={loading} className="w-full">
               Create Account
             </Button>

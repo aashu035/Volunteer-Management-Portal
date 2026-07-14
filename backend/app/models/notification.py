@@ -30,7 +30,7 @@ class Notification(Base):
         UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False
     )
     type: Mapped[NotificationType] = mapped_column(
-        Enum(NotificationType), default=NotificationType.GENERAL
+        Enum(NotificationType, values_callable=lambda obj: [e.value for e in obj]), default=NotificationType.GENERAL
     )
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     message: Mapped[str | None] = mapped_column(Text, nullable=True)

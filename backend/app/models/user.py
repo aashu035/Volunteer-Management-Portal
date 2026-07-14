@@ -35,10 +35,10 @@ class User(Base):
     full_name: Mapped[str] = mapped_column(String(255), nullable=False)
     phone: Mapped[str | None] = mapped_column(String(20), nullable=True)
     role: Mapped[UserRole] = mapped_column(
-        Enum(UserRole), nullable=False, default=UserRole.VOLUNTEER
+        Enum(UserRole, values_callable=lambda obj: [e.value for e in obj]), nullable=False, default=UserRole.VOLUNTEER
     )
     status: Mapped[UserStatus] = mapped_column(
-        Enum(UserStatus), nullable=False, default=UserStatus.ACTIVE
+        Enum(UserStatus, values_callable=lambda obj: [e.value for e in obj]), nullable=False, default=UserStatus.ACTIVE
     )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)

@@ -33,7 +33,7 @@ class Attendance(Base):
     check_out_time: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     hours_logged: Mapped[float] = mapped_column(Float, default=0.0)
     status: Mapped[AttendanceStatus] = mapped_column(
-        Enum(AttendanceStatus), default=AttendanceStatus.PRESENT
+        Enum(AttendanceStatus, values_callable=lambda obj: [e.value for e in obj]), default=AttendanceStatus.PRESENT
     )
 
     # Relationships

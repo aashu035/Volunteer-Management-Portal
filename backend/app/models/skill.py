@@ -43,7 +43,7 @@ class VolunteerSkill(Base):
         UUID(as_uuid=True), ForeignKey("skills.id", ondelete="CASCADE"), nullable=False
     )
     proficiency: Mapped[SkillProficiency] = mapped_column(
-        Enum(SkillProficiency), default=SkillProficiency.BEGINNER
+        Enum(SkillProficiency, values_callable=lambda obj: [e.value for e in obj]), default=SkillProficiency.BEGINNER
     )
     verified: Mapped[bool] = mapped_column(Boolean, default=False)
 

@@ -45,6 +45,8 @@ RUN apt-get update && \
 
 COPY --from=builder /install /usr/local
 
+ENV PYTHONPATH=/app
+
 COPY . .
 
 RUN sed -i 's/\r$//' start.sh && chmod +x start.sh

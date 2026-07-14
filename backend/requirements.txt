@@ -1,0 +1,37 @@
+# Core Framework
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+gunicorn==21.2.0
+
+# Database
+sqlalchemy==2.0.30
+asyncpg==0.29.0
+alembic==1.13.0
+psycopg2-binary==2.9.9
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+slowapi==0.1.9
+
+# Configuration
+pydantic==2.7.0
+pydantic-settings==2.2.0
+python-dotenv==1.0.0
+
+# AI & Data
+rapidfuzz==3.9.0
+
+# Email & Notifications (stubbed)
+aiosmtplib==3.0.0
+jinja2==3.1.0
+
+# Utilities
+httpx==0.27.0
+python-dateutil==2.9.0
+
+# Testing
+pytest==8.2.0
+pytest-asyncio==0.23.0
+pytest-cov==5.0.0

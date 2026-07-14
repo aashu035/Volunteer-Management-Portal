@@ -95,4 +95,14 @@ async def health_check():
 # API Routes
 # ===========================
 
+from fastapi.responses import JSONResponse
+import traceback
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal Server Error", "traceback": traceback.format_exc()}
+    )
+
 app.include_router(api_v1_router, prefix="/api/v1")

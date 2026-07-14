@@ -13,7 +13,7 @@ elif [ -z "$DATABASE_URL_SYNC" ]; then
 fi
 
 echo "Running Alembic migrations..."
-alembic upgrade head
+python -m alembic upgrade head
 
 echo "Seeding database..."
 python -m app.db.seed || echo "Seeding skipped (already seeded)"

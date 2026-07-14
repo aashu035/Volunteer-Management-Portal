@@ -1,14 +1,11 @@
 #!/bin/sh
 set -e
 
-# Fix Render's postgres:// → postgresql+asyncpg:// for async driver
-if echo "$DATABASE_URL" | grep -q "^postgres://"; then
-  export DATABASE_URL=$(echo "$DATABASE_URL" | sed 's|^postgres://|postgresql+asyncpg://|')
-fi
+# Fix Render's DATABASE_URL for async driver
+export DATABASE_URL=$(echo "$DATABASE_URL" | sed -e 's|^postgres://|postgresql+asyncpg://|' -e 's|^postgresql://|postgresql+asyncpg://|')
 
-if echo "$DATABASE_URL_SYNC" | grep -q "^postgres://"; then
-  export DATABASE_URL_SYNC=$(echo "$DATABASE_URL_SYNC" | sed 's|^postgres://|postgresql://|')
-elif [ -z "$DATABASE_URL_SYNC" ]; then
+# Create DATABASE_URL_SYNC for Alembic (which uses psycopg2)
+if [ -z "$DATABASE_URL_SYNC" ]; then
   export DATABASE_URL_SYNC=$(echo "$DATABASE_URL" | sed 's|postgresql+asyncpg://|postgresql://|')
 fi
 

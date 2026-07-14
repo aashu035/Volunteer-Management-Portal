@@ -8,7 +8,6 @@ services:
   # ── Backend API ──
   - type: web
     name: volunteer-portal-api
-    plan: free
     runtime: docker
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
@@ -21,7 +20,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: FRONTEND_URL
-        value: https://volunteer-portal-frontend-yzwk.onrender.com
+        value: https://volunteer-portal-frontend.onrender.com
       - key: ENV
         value: production
       - key: RATE_LIMIT
@@ -30,7 +29,6 @@ services:
   # ── Frontend Static Site ──
   - type: web
     name: volunteer-portal-frontend
-    plan: free
     runtime: static
     buildCommand: cd frontend && npm ci && npm run build
     staticPublishPath: frontend/dist

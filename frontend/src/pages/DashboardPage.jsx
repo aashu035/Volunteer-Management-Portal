@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import { PageHeader, KpiCard, Card, LoadingSpinner } from "../components/common";
 import { Users, Calendar, Clock, ListTodo } from "lucide-react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from "chart.js";
-import { Doughnut, Bar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 

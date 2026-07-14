@@ -3,8 +3,8 @@
  */
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import client from "../api/client";
-import { useAuth } from "../context/AuthContext";
-import { PageHeader, Button, Card, Badge, LoadingSpinner, EmptyState } from "../components/common";
+
+import { PageHeader, Card, Badge, LoadingSpinner, EmptyState } from "../components/common";
 import { Bell, Check, Trash2 } from "lucide-react";
 import { formatRelative, capitalize } from "../utils/formatters";
 import { cn } from "../utils/cn";

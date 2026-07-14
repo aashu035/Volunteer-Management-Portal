@@ -3,8 +3,8 @@
  */
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import { Button, Input } from "../../components/common";
+import { useAuth } from "../context/AuthContext";
+import { Button, Input } from "../components/common";
 import { Sparkles } from "lucide-react";
 import toast from "react-hot-toast";
 

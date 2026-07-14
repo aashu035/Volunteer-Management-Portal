@@ -3,12 +3,12 @@
  */
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { eventsApi } from "../../api/events";
-import { useAuth } from "../../context/AuthContext";
-import { PageHeader, Button, Card, Badge, LoadingSpinner, EmptyState, Input } from "../../components/common";
+import { eventsApi } from "../api/events";
+import { useAuth } from "../context/AuthContext";
+import { PageHeader, Button, Card, Badge, LoadingSpinner, EmptyState, Input } from "../components/common";
 import { Calendar, MapPin, Users, Plus, X } from "lucide-react";
-import { formatDateTime, capitalize } from "../../utils/formatters";
-import { STATUS_COLORS } from "../../utils/constants";
+import { formatDateTime, capitalize } from "../utils/formatters";
+import { STATUS_COLORS } from "../utils/constants";
 import toast from "react-hot-toast";
 
 export default function EventsPage() {

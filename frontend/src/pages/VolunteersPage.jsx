@@ -2,10 +2,10 @@
  * Volunteers Page — list and search volunteers (admin/coordinator only).
  */
 import { useQuery } from "@tanstack/react-query";
-import client from "../../api/client";
-import { PageHeader, Card, Badge, LoadingSpinner, EmptyState } from "../../components/common";
+import client from "../api/client";
+import { PageHeader, Card, Badge, LoadingSpinner, EmptyState } from "../components/common";
 import { Users, MapPin, Clock } from "lucide-react";
-import { formatHours } from "../../utils/formatters";
+import { formatHours } from "../utils/formatters";
 
 export default function VolunteersPage() {
   const { data: volunteers, isLoading } = useQuery({

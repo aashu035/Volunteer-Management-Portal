@@ -3,13 +3,13 @@
  */
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { eventsApi } from "../../api/events";
-import { tasksApi } from "../../api/tasks";
-import { useAuth } from "../../context/AuthContext";
-import { PageHeader, Button, Card, Badge, LoadingSpinner, EmptyState, Input } from "../../components/common";
+import { eventsApi } from "../api/events";
+import { tasksApi } from "../api/tasks";
+import { useAuth } from "../context/AuthContext";
+import { PageHeader, Button, Card, Badge, LoadingSpinner, EmptyState, Input } from "../components/common";
 import { ListTodo, CheckCircle2 } from "lucide-react";
-import { capitalize, formatDateTime } from "../../utils/formatters";
-import { STATUS_COLORS } from "../../utils/constants";
+import { capitalize, formatDateTime } from "../utils/formatters";
+import { STATUS_COLORS } from "../utils/constants";
 import toast from "react-hot-toast";
 
 export default function TasksPage() {

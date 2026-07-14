@@ -3,12 +3,12 @@
  */
 import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { eventsApi } from "../../api/events";
-import { tasksApi } from "../../api/tasks";
-import { aiApi } from "../../api/ai";
-import { PageHeader, Button, Card, Badge, LoadingSpinner, EmptyState } from "../../components/common";
+import { eventsApi } from "../api/events";
+import { tasksApi } from "../api/tasks";
+import { aiApi } from "../api/ai";
+import { PageHeader, Button, Card, Badge, LoadingSpinner, EmptyState } from "../components/common";
 import { BrainCircuit, Sparkles, Target, Zap } from "lucide-react";
-import { capitalize } from "../../utils/formatters";
+import { capitalize } from "../utils/formatters";
 import toast from "react-hot-toast";
 
 export default function AIMatchingPage() {

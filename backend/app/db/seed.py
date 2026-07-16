@@ -148,11 +148,11 @@ async def seed():
         # --- Events ---
         now = datetime.now(timezone.utc)
         events_data = [
-            ("Community Health Camp", "Free health checkups and awareness drive for underprivileged communities.", "Community Center, Delhi", EventStatus.OPEN, 30),
-            ("Education Workshop", "Teaching basic computer skills to rural students.", "Village School, Pune", EventStatus.OPEN, 20),
-            ("Clean City Drive", "City-wide cleanup campaign targeting plastic waste.", "City Park, Mumbai", EventStatus.IN_PROGRESS, 50),
-            ("Tech for Good Hackathon", "48-hour hackathon building solutions for NGOs.", "TechHub, Bangalore", EventStatus.PLANNING, 40),
-            ("Food Distribution Drive", "Distributing meals to homeless shelters.", "Central Kitchen, Chennai", EventStatus.COMPLETED, 25),
+            ("Project Shiksha - Mentorship Drive", "Weekly mentorship for underprivileged children in government schools.", "Government School, Sector 14", EventStatus.OPEN, 30),
+            ("Environmental Protection Campaign", "Tree plantation and plastic waste cleanup drive across the city.", "City Park", EventStatus.OPEN, 50),
+            ("Community Health Camp", "Free health checkups, hygiene kits, and awareness drive for rural communities.", "Village Community Center", EventStatus.IN_PROGRESS, 25),
+            ("Women Empowerment Workshop", "Skill development and financial literacy workshop for women.", "Amaanitvam Center", EventStatus.PLANNING, 40),
+            ("Food & Blanket Distribution", "Winter distribution drive for the homeless.", "Railway Station Area", EventStatus.COMPLETED, 20),
         ]
         events = []
         for i, (title, desc, loc, status, max_vol) in enumerate(events_data):

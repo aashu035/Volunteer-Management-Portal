@@ -1,12 +1,19 @@
 /**
  * Login Page — premium glassmorphism design.
  */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Button, Input } from "../components/common";
 import { Sparkles } from "lucide-react";
 import toast from "react-hot-toast";
+
+const galleryImages = [
+  "https://images.unsplash.com/photo-1593113565694-c6f8716c0296?auto=format&fit=crop&q=80&w=1920", // Education/Kids
+  "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&q=80&w=1920", // Volunteering
+  "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&q=80&w=1920", // Learning
+  "https://images.unsplash.com/photo-1528605105345-5344ea20e269?auto=format&fit=crop&q=80&w=1920"  // Art & Community
+];
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -14,6 +21,14 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,19 +45,32 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-accent-50 px-4">
-      <div className="w-full max-w-md animate-slide-up">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Background Slideshow */}
+      {galleryImages.map((src, index) => (
+        <div
+          key={src}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+            index === bgIndex ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ backgroundImage: `url(${src})` }}
+        />
+      ))}
+      {/* Dark overlay for contrast */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+
+      <div className="w-full max-w-md animate-slide-up relative z-10">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center shadow-xl shadow-primary-500/25 mx-auto mb-4">
-            <Sparkles className="w-8 h-8 text-white" />
+          <div className="w-20 h-20 rounded-2xl overflow-hidden flex items-center justify-center shadow-2xl mx-auto mb-4 bg-white border border-white/20">
+            <img src="/src/assets/logo.jpg" alt="Amaanitvam Logo" className="w-full h-full object-cover" />
           </div>
-          <h1 className="text-2xl font-bold gradient-text">Welcome Back</h1>
-          <p className="text-surface-500 mt-1">Sign in to your volunteer portal</p>
+          <h1 className="text-3xl font-bold text-white drop-shadow-md">Welcome Back</h1>
+          <p className="text-white/80 mt-1 drop-shadow">Sign in to your volunteer portal</p>
         </div>
 
         {/* Form */}
-        <div className="glass-card p-8">
+        <div className="bg-white/95 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-white/20">
           <form onSubmit={handleSubmit} className="space-y-5">
             <Input
               id="email"

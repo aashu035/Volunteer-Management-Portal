@@ -22,3 +22,19 @@ class AdminDashboardResponse(BaseModel):
     pending_tasks: KpiCard
     volunteer_growth: list[ChartDataPoint]
     event_distribution: list[ChartDataPoint]
+
+
+class CoordinatorDashboardResponse(BaseModel):
+    my_events: KpiCard
+    total_volunteers: KpiCard
+    pending_tasks: KpiCard
+    total_hours_logged: KpiCard
+    event_distribution: list[ChartDataPoint]
+
+
+class VolunteerDashboardResponse(BaseModel):
+    total_hours: KpiCard
+    upcoming_events: KpiCard
+    completed_tasks: KpiCard
+    rank_or_badges: KpiCard
+    hours_history: list[ChartDataPoint]

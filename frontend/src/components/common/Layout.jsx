@@ -50,12 +50,12 @@ export default function Layout() {
       >
         {/* Logo */}
         <div className="flex items-center gap-3 px-6 py-5 border-b border-surface-100">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center shadow-md">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md bg-white border border-surface-200">
+            <img src="/src/assets/logo.jpg" alt="Amaanitvam Logo" className="w-full h-full object-cover" />
           </div>
           <div>
-            <h2 className="text-base font-bold gradient-text">Amaanitvam</h2>
-            <p className="text-xs text-surface-400">Volunteer Portal</p>
+            <h2 className="text-base font-bold text-surface-900">Amaanitvam</h2>
+            <p className="text-xs text-surface-500">Volunteer Portal</p>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}

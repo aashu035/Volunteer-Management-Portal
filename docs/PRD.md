@@ -40,7 +40,7 @@ To create an intelligent, scalable volunteer management ecosystem that empowers 
 
 | ID | Requirement | Priority |
 |----|-------------|----------|
-| FR-001 | JWT-based authentication with secure password hashing (SHA-256) | P0 |
+| FR-001 | JWT-based authentication with secure password hashing (bcrypt, 12 rounds) | P0 |
 | FR-002 | Role-based access control (Admin, Coordinator, Volunteer) | P0 |
 | FR-003 | Password reset via email token | P1 |
 | FR-004 | Session management with configurable expiry | P1 |

@@ -7,9 +7,10 @@ import { useAuth } from "../context/AuthContext";
 import { Button, Input } from "../components/common";
 import { Sparkles } from "lucide-react";
 import toast from "react-hot-toast";
+import logoImg from "../assets/logo.jpg";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1593113565694-c6f8716c0296?auto=format&fit=crop&q=80&w=1920", // Education/Kids
+  "https://images.unsplash.com/photo-1497375638960-ca368c7231e4?auto=format&fit=crop&q=80&w=1920", // Volunteers together
   "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&q=80&w=1920", // Volunteering
   "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&q=80&w=1920", // Learning
   "https://images.unsplash.com/photo-1528605105345-5344ea20e269?auto=format&fit=crop&q=80&w=1920"  // Art & Community
@@ -63,7 +64,7 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="w-20 h-20 rounded-2xl overflow-hidden flex items-center justify-center shadow-2xl mx-auto mb-4 bg-white border border-white/20">
-            <img src="/src/assets/logo.jpg" alt="Amaanitvam Logo" className="w-full h-full object-cover" />
+            <img src={logoImg} alt="Amaanitvam Logo" className="w-full h-full object-cover" />
           </div>
           <h1 className="text-3xl font-bold text-white drop-shadow-md">Welcome Back</h1>
           <p className="text-white/80 mt-1 drop-shadow">Sign in to your volunteer portal</p>
